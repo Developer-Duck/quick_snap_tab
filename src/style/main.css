@@ -1,12 +1,18 @@
 :root{
     --background-color:#000000;
-    --low-background-color:#181b23;
+    --low-background-color:#393939a1;
     --low-font-color : #b4b4b4;
 }
 .main{
     background-color: var(--background-color);
     width: 100vw;
     height: 100vh;
+     background-image: radial-gradient(
+    circle,
+    rgba(139, 139, 139, 0.35) 0.5px,
+    transparent 1.2px
+  );
+  background-size: 35px 35px;
 }
 
 
@@ -22,13 +28,16 @@
 .add_windows{
     width: 150px;
     height: 150px;
-    background-color: var(--low-background-color);
+    border: 1px solid white;
     border-radius: 20px;
-    opacity: 80%;
+    opacity: 60%;
     transition: all 0.3s;
+    background-color: #00000094;
 }
 .add_windows:hover{
     opacity: 100%;
+    border: none;
+    background-color: var(--low-background-color);
 }
 .add_windows_button{
     width: 50px;
