@@ -10,8 +10,15 @@ function Main() {
 
   const [addWindowOpen, setAddWindowOpen] = useState(false)
 
+  const [webViewData, setWebViewData] = useState<{
+    url: string;
+    title?: string;
+  } | null>(null);
+
   return (
     <div className='main center'>
+      {/* <webview className='view' src='https://www.youtube.com/'></webview> */}
+
       <div className='add_windows_wrap revers_center' onClick={() => setAddWindowOpen(true)}>
           <div className='add_windows center'>
             <Plus color='white'  className='add_windows_button' />

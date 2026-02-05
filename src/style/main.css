@@ -16,10 +16,14 @@
   );
   background-size: 35px 35px;
 }
-
+.main > .view{
+    width: 100vw;
+    height: 100vh;
+}
 
 .add_windows_wrap{
     display: flex;
+    /* display: none; */
 }
 
 .add_windows_wrap > p{
