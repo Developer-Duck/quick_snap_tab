@@ -1,3 +1,10 @@
+:root{
+    --background-color:#000000;
+    --low-background-color:#393939a1;
+    --low-font-color : #b4b4b4;
+    --active-butoon-color : #020202;
+    --low-border-color : rgb(35, 35, 35);
+}
 * {
     margin: 0;
     padding: 0;

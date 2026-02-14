@@ -1,0 +1,253 @@
+.home {
+    width: 100vw;
+    max-height: 100vh;
+    background-color: var(--background-color);
+    padding: 20px 40px 100px 40px;
+    overflow-y: auto;
+}
+
+.home::-webkit-scrollbar {
+    display: none;
+}
+
+.home_header_contianer {
+    /* border: 1px solid white; */
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home_banner_container {
+    width: 100%;
+    height: 300px;
+    /* border: 1px solid white; */
+    margin: 15px 0px 35px 0px;
+    border-radius: 11px;
+    border: 1px solid var(--low-border-color);
+}
+
+.home_banner_container>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+
+.home_workspace_container {
+    height: calc(100% - 430px);
+    width: 100%;
+    /* border: 1px solid white; */
+}
+
+.home_workspace_header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workspace {
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    /* auto-fit 대신 auto-fill을 권장 (아이템이 적어도 레이아웃 유지) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* 상하좌우 간격을 한 번에 조절 */
+    gap: 30px;
+    justify-items: stretch;
+}
+
+.workspace::-webkit-scrollbar {
+    display: none;
+}
+
+.home_workspace_header>p {
+    color: var(--low-font-color);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.create_workspace_wrap {
+    display: flex;
+}
+
+.change_view_worksace {
+    /* border: 1px solid white; */
+    display: flex;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 7px;
+}
+
+.change_view_worksace>div {
+    width: 30px;
+    height: 30px;
+}
+
+.activate_grid {
+    background-color: var(--low-background-color);
+}
+
+.change_view_worksace div>.icon {
+    color: var(--low-font-color);
+    width: 20px;
+    height: 20px;
+}
+
+.create_workspace {
+    padding: 10px;
+    display: flex;
+    height: 50px;
+    border-radius: 7px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.create_workspace>span {
+    color: white;
+}
+
+.create_workspace:hover {
+    background-color: var(--low-background-color);
+}
+
+.create_workspace>.icon {
+    stroke: var(--low-font-color);
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.user_icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid rgb(196, 196, 196);
+    overflow: hidden;
+}
+
+.user_icon>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user_info {
+    padding: 8px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.user_info:hover {
+    background-color: var(--low-background-color);
+}
+
+.user_name_container>span {
+    color: var(--low-font-color);
+    margin: 0px 15px;
+    font-size: 12px;
+}
+
+.user_name {
+    /* border: 1px solid white; */
+    margin: 0px 15px;
+    color: white;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.header_menu {
+    display: flex;
+}
+
+.search>.icon,
+.alarm>.icon,
+.setting>.icon {
+    stroke: var(--low-font-color);
+    width: 25px;
+    height: 25px;
+}
+
+.setting,
+.alarm,
+.search {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid white; */
+    border-radius: 7px;
+    transition: background 0.3s;
+    transition: width 0.2s ease;
+}
+
+.setting:hover,
+.alarm:hover,
+.search:hover {
+    background-color: var(--low-background-color);
+}
+
+.search_input {
+    height: 50px;
+    position: relative;
+    width: 450px;
+    display: none;
+}
+
+.search.active .search_input {
+    display: block;
+}
+
+.search.active {
+    width: 450px;
+}
+
+.search.active:hover {
+    background: none;
+}
+
+.search.active>.icon {
+    display: none;
+}
+
+.input_search_icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    stroke: var(--low-font-color);
+}
+
+.input_close_icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    stroke: var(--low-font-color);
+    transition: background 0.3s;
+    /* padding: 10px; */
+}
+.input_close_icon:hover{
+    stroke: white;
+}
+
+
+.search_input>input {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    border: none;
+    background-color: var(--low-background-color);
+    padding: 0px 50px 0px 40px;
+    color: white;
+    font-size: 14px;
+}

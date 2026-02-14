@@ -1,4 +1,5 @@
 import { Image, Upload, X } from 'lucide-react';
+import { app } from 'electron';
 import '../style/icon.css'
 
 const getFileExtension = (filename: string) => {
