@@ -4,7 +4,11 @@
     width: 100%; 
     border: 1px solid var(--low-border-color);
     border-radius: 11px;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+.project_item_container.selected {
+    border: 1px solid #cacaca;
 }
 
 .project_img{
@@ -13,15 +17,19 @@
     /* border: 1px solid white; */
     position: relative;
     background-color: gray;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
 }
 .project_edit_button{
     position: absolute;
     top: 10px;
     right: 15px;
-    display: none;
+    opacity: 0;
+    transition: 0.2s;
 }
-.project_item_container:hover .project_edit_button{
-    display: block;
+.project_item_container:hover .project_edit_button,
+.project_item_container.active .project_edit_button {
+  opacity: 1;
 }
 .project_edit_button > .icon{
     stroke: var(--low-font-color);

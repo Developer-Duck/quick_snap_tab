@@ -1,5 +1,5 @@
 .add_window {
-    position: absolute;
+    position: fixed;
     width: 500px;
     height: 500px;
     border: 0.1px solid var(--low-border-color);

@@ -8,14 +8,42 @@ import UserImg from '../assets/images/duck_img.jpg'
 import BannerImage from '../assets/images/banner.jpg'
 
 import ProjectItem from '../components/project_item'
+import CreateWorkSpace from '../components/create_workspace';
 
-function Home() {
+import { Workspace } from "../App";
+
+function Home({
+  workspaces,
+  setWorkspaces
+}: {
+  workspaces: Workspace[];
+  setWorkspaces: React.Dispatch<React.SetStateAction<Workspace[]>>;
+}) {
 
     const [Searchactive, setSearchActive] = useState(false);
     const [searchValue, setSearchValue] = useState("");
+    const [CreateWorkspaceOpen, setCreateWorkspaceOpen] = useState(false);
+    const [selectedWorkspaceId, setSelectedWorkspaceId] = useState<string | null>(null);
+
+    // 검색 필터링
+    const filteredWorkspaces = workspaces.filter(ws => {
+        if (!searchValue.trim()) return true; // 검색어 없으면 전체 표시
+        
+        const searchLower = searchValue.toLowerCase();
+        const titleMatch = ws.title.toLowerCase().includes(searchLower);
+        const descriptionMatch = ws.description?.toLowerCase().includes(searchLower);
+        
+        return titleMatch || descriptionMatch;
+    });
+
+    // 다른 곳 클릭 시 선택 해제
+    const handleBackgroundClick = () => {
+        setSelectedWorkspaceId(null);
+        setSearchActive(false); // 검색창도 닫기
+    };
 
     return (
-        <div className='home'>
+        <div className='home' onClick={handleBackgroundClick}>
             <div className='home_header_contianer'>
                 <div className='user_info center'>
                     <div className='user_icon'>
@@ -27,7 +55,10 @@ function Home() {
                     </div>
                 </div>
                 <div className='header_menu'>
-                    <div className={`search center ${Searchactive ? "active" : ""}`} onClick={() => setSearchActive(!Searchactive)}>
+                    <div className={`search center ${Searchactive ? "active" : ""}`} onClick={(e) => {
+                        e.stopPropagation();
+                        setSearchActive(!Searchactive);
+                    }}>
                         <Search strokeWidth={1.7} className='icon' />
                         <div className='search_input' onClick={(e) => e.stopPropagation()}>
                             <Search strokeWidth={1.7} className='input_search_icon' />
@@ -60,25 +91,57 @@ function Home() {
                             </div>
                         </div>
 
-                        <div className='create_workspace center'>
+                        <div className='create_workspace center' onClick={() => setCreateWorkspaceOpen(true)}>
                             <Plus strokeWidth={1.7} className='icon' />
                             <span>새 작업 환경</span>
+                                {CreateWorkspaceOpen && (
+                                <CreateWorkSpace
+                                    onClose={() => setCreateWorkspaceOpen(false)}
+                                    onCreate={(newWorkspace) => {
+                                    setWorkspaces(prev => [...prev, newWorkspace]);
+                                    }}
+                                />
+                                )}
                         </div>
                     </div>
                 </div>
-                <div className='workspace'>
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                </div>
+                    <div className='workspace'>
+                    {filteredWorkspaces.length > 0 ? (
+                        filteredWorkspaces.map(ws => (
+                            <ProjectItem 
+                                key={ws.id} 
+                                workspace={ws}
+                                isSelected={selectedWorkspaceId === ws.id}
+                                onSelect={() => setSelectedWorkspaceId(ws.id)}
+                                onDuplicate={(workspace) => {
+                                    const duplicated = {
+                                        ...workspace,
+                                        id: Date.now().toString(),
+                                        title: `${workspace.title} (복사본)`,
+                                        createdAt: Date.now()
+                                    };
+                                    setWorkspaces(prev => [...prev, duplicated]);
+                                }}
+                                onDelete={(workspaceId) => {
+                                    setWorkspaces(prev => prev.filter(w => w.id !== workspaceId));
+                                }}
+                                onUpdate={(workspaceId, title, description) => {
+                                    setWorkspaces(prev =>
+                                        prev.map(w =>
+                                            w.id === workspaceId
+                                                ? { ...w, title, description }
+                                                : w
+                                        )
+                                    );
+                                }}
+                            />
+                        ))
+                    ) : (
+                        <div className='no_results'>
+                            <p>검색 결과가 없습니다.</p>
+                        </div>
+                    )}
+                    </div>
             </div>
         </div>
     );

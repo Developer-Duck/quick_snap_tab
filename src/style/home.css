@@ -1,9 +1,22 @@
 .home {
     width: 100vw;
-    max-height: 100vh;
+    height: 100vh;
     background-color: var(--background-color);
     padding: 20px 40px 100px 40px;
     overflow-y: auto;
+    position: relative;
+}
+
+.no_results {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.no_results p {
+    color: var(--text-secondary-color, #999);
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .home::-webkit-scrollbar {

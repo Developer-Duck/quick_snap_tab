@@ -23,7 +23,7 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "main": "electron/main.ts",
+  "main": "dist-electron/main.js",
   "scripts": {
     "start": "react-scripts start",
     "electron": "electron .",

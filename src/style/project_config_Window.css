@@ -1,0 +1,51 @@
+
+/* project_config_Window.css */
+.project_config_Window {
+    position: absolute;
+    width: 150px;
+    border-radius: 7px;
+    background-color: var(--background-color);
+    z-index: 9990;
+    border: 1px solid var(--low-border-color);
+    top: 40px;
+    left: 0;
+}
+
+.project_config_Window.align_right {
+    left: auto;
+    right: 0px;
+}
+.project_config_window_open{
+    display: flex;
+}
+.project_config_window_open > .icon{
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    margin-right: 10px;
+}
+.project_config_Window > div {
+    border-radius: 7px;
+    cursor: pointer;
+    height: 30px;
+    width: 100%;
+    /* border: 1px solid white; */
+    padding: 25px 20px;
+    display: flex;
+    align-items: center;
+}
+.project_config_window_deleteproject{
+    border-top: 1px solid var(--low-border-color);
+}
+.project_config_window_open > p, .project_config_window_changeprojectname > p, .project_config_window_copy{
+    color: white;
+}
+.project_config_window_deleteproject > p{
+    color: rgb(255, 55, 55);
+}
+.project_config_window_open:hover, .project_config_window_changeprojectname:hover, .project_config_window_copy:hover{
+    background-color: var(--low-background-color);
+}
+.project_config_window_deleteproject:hover{
+    background-color: rgb(56, 7, 7);
+}

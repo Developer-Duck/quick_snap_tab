@@ -1,0 +1,115 @@
+.create_workspace_menu{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 9999;
+}
+.create_workspace_menu > div{
+    width: 500px;
+    border: 1px solid var(--low-border-color);
+    padding: 30px;
+    background-color: rgb(15, 15, 15);
+    border-radius: 7px;
+    position: relative;
+}
+.create_workspace_menu > div > h2{
+    color:  white;
+}
+.create_workspace_menu > div > p{
+    color: var(--low-font-color);
+}
+.create_project_name{
+    width: 100%;
+    /* border: 1px solid white; */
+    margin: 50px 0px 20px 0px;
+}
+.create_project_name > p, .create_project_introduce > p{
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.create_project_introduce > p > span{
+    color: var(--low-font-color);
+    font-size: 12px;
+}
+.create_project_name > p > span{
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 12px;
+}
+.create_project_name > input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--low-border-color);
+    border-radius: 7px;
+    background-color: var(--low-background-color);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 10px;
+}
+
+.create_project_name > input.error {
+    border: 1px solid #ff4444;
+}
+
+.create_project_introduce > textarea{
+    width: 100%;
+    border: 1px solid var(--low-border-color);
+    border-radius: 7px;
+    background-color: var(--low-background-color);
+    height:150px;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    resize: none;
+} 
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.create_project_button{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 30px;
+}
+.create_project_button > button{
+    padding: 12px;
+    border-radius: 7px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 15px;
+}
+.create_project_button > button:hover{
+    background-color: var(--low-background-color);
+}
+.create_workspace_menu > div > .icon{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 22px;
+    height: 22px;
+    stroke: var(--low-font-color);
+}
+.create_workspace_menu > div > .icon:hover{
+    stroke: white;
+}

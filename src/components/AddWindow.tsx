@@ -5,7 +5,17 @@ import '../style/add_window.css'
 import '../App.css'
 import { X, Link2, FileText, Image, Globe, SquareArrowOutUpRight, Upload } from 'lucide-react';
 
-function AddWindow({ onClose }: { onClose: () => void }) {
+type AddWindowProps = {
+  onClose: () => void;
+  onAdd: (data: {
+    type: 'link' | 'doc' | 'img';
+    url?: string;
+    file?: File;
+    title?: string;
+  }) => void;
+};
+
+function AddWindow({ onClose, onAdd }: AddWindowProps) {
 
 
   const [addWindowType, setAddWindowType] = useState<'link' | 'doc' | 'img'>('link')
@@ -182,7 +192,38 @@ useEffect(() => {
 
       <div className="add_buton_container">
         <button className='cancel_button' onClick={(e) => {e.stopPropagation(); onClose();}}>취소</button>
-        <button className='add_button'>추가하기</button>
+        <button
+          className='add_button'
+          onClick={() => {
+            if (addWindowType === 'link' && linkUrl) {
+              onAdd({
+                type: 'link',
+                url: linkUrl,
+                title: linkTitle
+              });
+            }
+
+            if (addWindowType === 'doc' && selectedDoc) {
+              onAdd({
+                type: 'doc',
+                file: selectedDoc,
+                title: docTitle
+              });
+            }
+
+            if (addWindowType === 'img' && selectedImage) {
+              onAdd({
+                type: 'img',
+                file: selectedImage,
+                title: imgTitle
+              });
+            }
+
+            onClose();
+          }}
+        >
+          추가하기
+        </button>
       </div>
 
 
