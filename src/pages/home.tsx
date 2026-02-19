@@ -103,7 +103,7 @@ function Home({
                                 />
                                 )}
                         </div>
-                    </div>
+                    </div> 
                 </div>
                     <div className='workspace'>
                     {filteredWorkspaces.length > 0 ? (

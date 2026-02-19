@@ -7,18 +7,6 @@
     position: relative;
 }
 
-.no_results {
-    width: 100%;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.no_results p {
-    color: var(--text-secondary-color, #999);
-    font-size: 16px;
-    font-weight: 500;
-}
-
 .home::-webkit-scrollbar {
     display: none;
 }
@@ -71,7 +59,22 @@
     /* 상하좌우 간격을 한 번에 조절 */
     gap: 30px;
     justify-items: stretch;
+    padding-bottom: 50px;
 }
+
+.no_results {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    /* border: 1px solid white; */
+}
+
+.no_results p {
+    color: var(--text-secondary-color, #999);
+    font-size: 16px;
+    font-weight: 500;
+}
+
 
 .workspace::-webkit-scrollbar {
     display: none;

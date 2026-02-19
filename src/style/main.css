@@ -2,12 +2,31 @@
     background-color: var(--background-color);
     width: 100vw;
     height: 100vh;
-     background-image: radial-gradient(
-    circle,
-    rgba(139, 139, 139, 0.35) 0.5px,
-    transparent 1.2px
-  );
-  background-size: 35px 35px;
+    background-image: radial-gradient(
+        circle,
+        rgba(139, 139, 139, 0.35) 0.5px,
+        transparent 1.2px
+    );
+    background-size: 35px 35px;
+    position: relative;
+}
+
+.window_view{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.window_view > webview{
+    width: 100%;
+    height: 100%;
+}
+.window_view > img{
+    width: 100%;
+    height: 100%;
+}
+.window_view > iframe{
+    width: 100%;
+    height: 100%;
 }
 .main > .view{
     width: 100vw;
@@ -16,9 +35,7 @@
 
 .add_windows_wrap{
     display: flex;
-    /* display: none; */
 }
-
 .add_windows_wrap > p{
     color: var(--low-font-color);
     font-weight: 500;
@@ -32,6 +49,7 @@
     opacity: 60%;
     transition: all 0.3s;
     background-color: #00000094;
+    cursor: pointer;
 }
 .add_windows:hover{
     opacity: 100%;
@@ -41,4 +59,33 @@
 .add_windows_button{
     width: 50px;
     height: 50px;
+}
+
+.main_control_button {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(104, 104, 104);
+    border-radius: 50%;
+    border: 1px solid rgb(112, 112, 112);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(255, 255, 255, 0.05);
+    /* transition은 JS에서 동적으로 제어하므로 여기선 제거 */
+    cursor: grab;
+    user-select: none;
+    z-index: 9999;
+}
+
+.main_control_button:active {
+    cursor: grabbing;
+}
+
+.main_control_button > .icon{
+    stroke: var(--low-font-color);
+    pointer-events: none;
+}
+
+.main_control_button:hover{
+    background-color: rgb(116, 116, 116);
 }
